@@ -1,11 +1,6 @@
 ---
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import logoSource from '../assets/wordmark-white.svg?raw';
 
-const logoSource = readFileSync(
-  resolve(process.cwd(), 'public/images/wordmark-white.svg'),
-  'utf8',
-);
 const viewBox = logoSource.match(/\bviewBox="([^"]+)"/)?.[1] ?? '0 0 666 102';
 const paths = [...logoSource.matchAll(/<path\b[^>]*\bd="([^"]+)"[^>]*\/?>/g)].map((match) => match[1]);
 ---
